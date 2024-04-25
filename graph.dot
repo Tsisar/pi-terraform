@@ -1,0 +1,24 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "helm_release.argo_cd" [label="helm_release.argo_cd"];
+  "helm_release.cert_manager" [label="helm_release.cert_manager"];
+  "helm_release.ingress_nginx" [label="helm_release.ingress_nginx"];
+  "helm_release.kubernetes_dashboard" [label="helm_release.kubernetes_dashboard"];
+  "kubernetes_ingress_v1.argo_cd" [label="kubernetes_ingress_v1.argo_cd"];
+  "kubernetes_ingress_v1.kubernetes_dashboard" [label="kubernetes_ingress_v1.kubernetes_dashboard"];
+  "kubernetes_manifest.cluster_issuer" [label="kubernetes_manifest.cluster_issuer"];
+  "kubernetes_namespace.argo_cd" [label="kubernetes_namespace.argo_cd"];
+  "kubernetes_namespace.cert_manager" [label="kubernetes_namespace.cert_manager"];
+  "kubernetes_namespace.ingress_nginx" [label="kubernetes_namespace.ingress_nginx"];
+  "kubernetes_namespace.kubernetes_dashboard" [label="kubernetes_namespace.kubernetes_dashboard"];
+  "null_resource.check_crd" [label="null_resource.check_crd"];
+  "helm_release.argo_cd" -> "kubernetes_namespace.argo_cd";
+  "helm_release.cert_manager" -> "kubernetes_namespace.cert_manager";
+  "helm_release.ingress_nginx" -> "kubernetes_namespace.ingress_nginx";
+  "helm_release.kubernetes_dashboard" -> "kubernetes_namespace.kubernetes_dashboard";
+  "kubernetes_ingress_v1.argo_cd" -> "helm_release.argo_cd";
+  "kubernetes_ingress_v1.kubernetes_dashboard" -> "helm_release.kubernetes_dashboard";
+  "kubernetes_manifest.cluster_issuer" -> "null_resource.check_crd";
+  "null_resource.check_crd" -> "helm_release.cert_manager";
+}
