@@ -3,6 +3,10 @@ terraform init -upgrade
 ```
 
 ```shell
+terraform apply -target=kubernetes_namespace.cert_manager -target=helm_release.cert_manager -auto-approve
+```
+
+```shell
 terraform plan
 ```
 
