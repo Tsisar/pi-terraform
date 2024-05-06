@@ -11,12 +11,12 @@ terraform {
 
 provider "kubernetes" {
   config_path    = "~/.kube/config"
-  config_context = "pi-cluster"
+  config_context = "proxmox"
 }
 
 provider "helm" {
   kubernetes {
     config_path = "~/.kube/config"
-    config_context = "pi-cluster"
+    config_context = "proxmox"
   }
 }

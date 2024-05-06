@@ -1,4 +1,8 @@
 ```shell
+bash start.sh
+```
+
+```shell
 terraform init -upgrade
 ```
 

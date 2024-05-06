@@ -10,7 +10,7 @@ resource "helm_release" "cert_manager" {
   name       = "cert-manager"
   repository = "https://charts.jetstack.io"
   chart      = "cert-manager"
-  version    = var.cert_manager_version
+  version    = "v1.14.5"
   namespace = "cert-manager"
 
   set {
@@ -51,8 +51,7 @@ resource "kubernetes_manifest" "cluster_issuer" {
     }
   }
 
-  depends_on = [
-      helm_release.cert_manager
-  ]
+#   depends_on = [
+#     helm_release.cert_manager
+#   ]
 }
-

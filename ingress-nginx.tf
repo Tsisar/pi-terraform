@@ -31,3 +31,4 @@ resource "helm_release" "ingress_nginx" {
     kubernetes_namespace.ingress_nginx
   ]
 }
+

@@ -26,3 +26,7 @@ crash.log
 
 # Windows thumbnail cache files that might be unwanted in the repository
 Thumbs.db
+
+**/.auth/*
+
+credentials.txt
